@@ -56,7 +56,7 @@ export default function TransactionsPage() {
     <ProtectedRoute>
       <div className="flex min-h-screen flex-col">
         <AppHeader/>
-        <main className="flex-1 container py-6">
+        <main className="flex-1 py-6">
           <div className="space-y-4">
             <h1 className="text-3xl font-bold">Журнал Транзакций</h1>
 

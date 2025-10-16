@@ -62,7 +62,7 @@ export default function RulesPage() {
     <ProtectedRoute>
       <div className="flex min-h-screen flex-col">
         <AppHeader />
-        <main className="flex-1 container py-6">
+        <main className="flex-1 py-6">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <h1 className="text-3xl font-bold">Журнал Правил</h1>

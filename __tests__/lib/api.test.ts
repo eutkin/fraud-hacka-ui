@@ -1,5 +1,4 @@
 import { fetchAttributes, fetchCorrelations, fetchRules, fetchTransactions } from "@/lib/api"
-import jest from "jest"
 
 global.fetch = jest.fn()
 
