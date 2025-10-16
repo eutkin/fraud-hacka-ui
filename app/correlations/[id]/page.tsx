@@ -77,14 +77,21 @@ export default function CorrelationCardPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Информация</CardTitle>
+                <CardTitle>Общая информация</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-2">
                   <Label className="text-base">Имя</Label>
                   <p className="text-sm text-muted-foreground">{correlation.name}</p>
                 </div>
+              </CardContent>
+            </Card>
 
+            <Card>
+              <CardHeader>
+                <CardTitle>Функция корреляции</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <Label className="text-base">Функция расчета</Label>
                   <p className="text-sm text-muted-foreground">{correlation.calculation_function}</p>
@@ -96,15 +103,20 @@ export default function CorrelationCardPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-base">Временное окно</Label>
-                  <TimeWindowInput value={correlation.time_window_seconds || 0} onChange={() => {}} readOnly />
-                </div>
-
-                <div className="space-y-2">
                   <Label className="text-base">Исторический фильтр</Label>
                   <div className="mt-2">
                     <ConditionBuilder value={mockCondition} onChange={() => {}} attributes={attributes} readOnly />
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Временное окно</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <TimeWindowInput value={correlation.time_window_seconds || 0} onChange={() => {}} readOnly />
                 </div>
               </CardContent>
             </Card>

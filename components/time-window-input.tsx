@@ -35,9 +35,9 @@ export function TimeWindowInput({ value, onChange, readOnly = false }: TimeWindo
 
   return (
     <div className="flex gap-2 items-end">
-      <div className="flex-1">
+      <div className="space-y-4">
         <Label>От текущего события</Label>
-        <Input
+        <Input className="w-32"
           type="number"
           min="0"
           value={displayValue}

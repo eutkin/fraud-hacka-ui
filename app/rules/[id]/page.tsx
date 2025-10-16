@@ -59,32 +59,36 @@ export default function RuleCardPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Информация</CardTitle>
+                <CardTitle>Общая информация</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <Label className="text-base">Имя</Label>
-                  <p className="text-sm text-muted-foreground">{rule.name}</p>
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label className="text-base font-semibold">Имя</Label>
+                    <p className="text-sm text-muted-foreground">{rule.name}</p>
+                  </div>
 
-                <div className="space-y-2">
-                  <Label className="text-base">Приоритет</Label>
-                  <p className="text-sm text-muted-foreground">{rule.priority}</p>
-                </div>
+                  <div className="space-y-2">
+                    <Label className="text-base font-semibold">Приоритет</Label>
+                    <p className="text-sm text-muted-foreground">{rule.priority}</p>
+                  </div>
 
-                <div className="space-y-2">
-                  <Label className="text-base">Рекомендуемое действие</Label>
-                  <div className="mt-1">
-                    <ActionBadge action={rule.recommended_action} />
+                  <div className="space-y-2">
+                    <Label className="text-base font-semibold">Рекомендуемое действие</Label>
+                    <div className="mt-1">
+                      <ActionBadge action={rule.recommended_action} />
+                    </div>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
 
-                <div className="space-y-2">
-                  <Label className="text-base">Условие сработки</Label>
-                  <div className="mt-2">
-                    <ConditionBuilder value={rule.condition} onChange={() => {}} attributes={attributes} readOnly />
-                  </div>
-                </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Условие сработки</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ConditionBuilder value={rule.condition} onChange={() => {}} attributes={attributes} readOnly />
               </CardContent>
             </Card>
           </div>

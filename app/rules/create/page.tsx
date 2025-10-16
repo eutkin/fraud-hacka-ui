@@ -76,7 +76,7 @@ export default function CreateRulePage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Информация</CardTitle>
+                <CardTitle>Общая информация</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-2">
@@ -126,7 +126,14 @@ export default function CreateRulePage() {
                     </SelectContent>
                   </Select>
                 </div>
+              </CardContent>
+            </Card>
 
+            <Card>
+              <CardHeader>
+                <CardTitle>Условие сработки</CardTitle>
+              </CardHeader>
+              <CardContent>
                 <div className="space-y-2">
                   <Label className="text-base">Условие сработки</Label>
                   <div className="mt-2">

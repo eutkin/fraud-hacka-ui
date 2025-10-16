@@ -87,7 +87,7 @@ export default function CreateCorrelationPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Информация</CardTitle>
+                <CardTitle>Функция корреляции</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-2">
@@ -132,17 +132,21 @@ export default function CreateCorrelationPage() {
                     </SelectContent>
                   </Select>
                 </div>
-
-                <div className="space-y-2">
-                  <Label className="text-base">Временное окно</Label>
-                  <TimeWindowInput value={timeWindowSeconds} onChange={setTimeWindowSeconds}/>
-                </div>
-
                 <div className="space-y-2">
                   <Label className="text-base">Исторический фильтр</Label>
                   <div className="mt-2">
                     <ConditionBuilder value={condition} onChange={setCondition} attributes={attributes}/>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Временное окно</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <TimeWindowInput value={timeWindowSeconds} onChange={setTimeWindowSeconds}/>
                 </div>
               </CardContent>
             </Card>
