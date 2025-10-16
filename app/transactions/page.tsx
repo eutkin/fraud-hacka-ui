@@ -7,10 +7,11 @@ import {AppHeader} from "@/components/app-header"
 import {AppFooter} from "@/components/app-footer"
 import {ProtectedRoute} from "@/components/protected-route"
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table"
-import {Input} from "@/components/ui/input"
 import {fetchTransactions, fetchAttributes} from "@/lib/api"
-import {X} from "lucide-react";
+import {IdCard} from "lucide-react";
 import {FilterInput} from "@/components/filter-input";
+import {Button} from "@/components/ui/button";
+import {FieldWithCopy} from "@/components/field-with-copy";
 
 export default function TransactionsPage() {
   const router = useRouter()
@@ -63,6 +64,11 @@ export default function TransactionsPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
+                    <TableHead key="action-543251">
+                      <div className="space-y-2">
+                        <div>Карточка</div>
+                      </div>
+                    </TableHead>
                     <TableHead>
                       <FilterInput
                         value={filters["id"] || ""}
@@ -94,7 +100,7 @@ export default function TransactionsPage() {
                 <TableBody>
                   {filteredTransactions.length === 0 ? (
                     <TableRow>
-                      <TableCell colSpan={5 + corrAttributes.length} className="h-24 text-center">
+                      <TableCell colSpan={6 + corrAttributes.length} className="h-24 text-center">
                         Нет данных
                       </TableCell>
                     </TableRow>
@@ -102,10 +108,19 @@ export default function TransactionsPage() {
                     filteredTransactions.map((transaction, index) => (
                       <TableRow
                         key={transaction.id}
-                        className={`cursor-pointer hover:bg-accent/50 ${index % 2 === 1 ? "bg-muted/50" : ""}`}
-                        onClick={() => router.push(`/transactions/${transaction.id}`)}
+                        className={`hover:bg-accent/50 ${index % 2 === 1 ? "bg-muted/50" : ""}`}
                       >
-                        <TableCell className="font-mono text-xs">{transaction.id.substring(0, 16)}...</TableCell>
+                        <TableCell>
+                          <div className="relative cursor-pointer">
+                            <Button className="cursor-pointer"
+                                    onClick={() => router.push(`/transactions/${transaction.id}`)}>
+                              <IdCard size={48}/>
+                            </Button>
+                          </div>
+                        </TableCell>
+                        <TableCell className="font-mono text-s">
+                          <FieldWithCopy textToCopy={transaction.id}/>
+                        </TableCell>
                         <TableCell>{new Date(transaction.timestamp).toLocaleString("ru-RU")}</TableCell>
                         {corrAttributes.slice(0, 3).map((attr) => (
                           <TableCell key={attr.id} className="max-w-[200px] truncate">
